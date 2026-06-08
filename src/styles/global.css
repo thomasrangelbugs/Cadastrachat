@@ -1,0 +1,564 @@
+/*
+  CSS global do projeto.
+
+  Este arquivo controla a aparência inteira do site:
+  cores, espaçamentos, cards, botões, formulário e responsividade.
+  Os comentários foram escritos de forma didática para facilitar manutenção.
+*/
+
+/* Variáveis são atalhos para cores e medidas usadas várias vezes no site. */
+:root {
+  --color-navy: #071b3f;
+  --color-blue: #0676ff;
+  --color-cyan: #13c8ff;
+  --color-green: #22c55e;
+  --color-ink: #0e1726;
+  --color-muted: #5f6b7a;
+  --color-line: #dce6f2;
+  --color-soft: #eef7ff;
+  --color-white: #ffffff;
+  --shadow-soft: 0 24px 80px rgba(7, 27, 63, 0.14);
+  --radius: 8px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--color-ink);
+  background: var(--color-white);
+  scroll-behavior: smooth;
+}
+
+/* box-sizing ajuda largura, padding e borda a se comportarem de forma previsível. */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove a margem padrão do navegador para o layout encostar corretamente nas bordas. */
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+/* Impede imagens de passarem do tamanho do elemento pai. */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove sublinhado padrão dos links, deixando o visual controlado pelo CSS. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Faz inputs, selects e botões herdarem a mesma fonte do site. */
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* Cabeçalho fixo no topo para a navegação ficar sempre acessível. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 76px;
+  padding: 14px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid rgba(220, 230, 242, 0.8);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+}
+
+/* Tamanho da logo no cabeçalho. */
+.brand img {
+  width: min(220px, 54vw);
+}
+
+/* Links principais do menu. */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.nav-links a:hover {
+  color: var(--color-blue);
+}
+
+/* Botão padrão usado em chamadas importantes. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: var(--radius);
+  color: var(--color-white);
+  background: var(--color-blue);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(6, 118, 255, 0.24);
+}
+
+/* Variação menor do botão, usada no menu. */
+.button-small {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: 0.9rem;
+}
+
+/* Variação secundária do botão, usada quando a ação não é a principal. */
+.button-ghost {
+  border: 1px solid var(--color-line);
+  color: var(--color-navy);
+  background: var(--color-white);
+  box-shadow: none;
+}
+
+/* Primeira dobra da landing page, com texto à esquerda e painel visual à direita. */
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+  align-items: center;
+  gap: clamp(28px, 6vw, 72px);
+  min-height: calc(100vh - 76px);
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 72px) 44px;
+  background:
+    linear-gradient(120deg, rgba(238, 247, 255, 0.95), rgba(255, 255, 255, 0.96)),
+    radial-gradient(circle at 82% 18%, rgba(19, 200, 255, 0.14), transparent 32%),
+    var(--color-white);
+}
+
+.hero-content {
+  max-width: 680px;
+}
+
+/* Texto pequeno em destaque usado acima de títulos. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-blue);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* Títulos grandes da home e das páginas internas. */
+.hero-content h1,
+.page-shell h1 {
+  margin: 18px 0;
+  color: var(--color-navy);
+  font-size: clamp(3rem, 8vw, 6.4rem);
+  line-height: 0.95;
+}
+
+/* Parágrafos principais com leitura confortável. */
+.hero-content p,
+.page-shell p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Agrupa os botões do hero com quebra automática no mobile. */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+/* Painel visual do hero simulando conversas e resultado de candidato. */
+.hero-panel {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid rgba(220, 230, 242, 0.85);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Cards com borda clara usados em vários pontos do site. */
+.chat-card,
+.candidate-card,
+.info-card,
+.whatsapp-preview,
+.contact-form,
+details {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-white);
+}
+
+.chat-card {
+  padding: 18px;
+}
+
+.chat-card strong {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--color-navy);
+}
+
+/* Balões de conversa do painel. */
+.chat-message {
+  width: fit-content;
+  max-width: 86%;
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  color: var(--color-ink);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.chat-message.inbound {
+  background: var(--color-soft);
+}
+
+.chat-message.outbound {
+  margin-left: auto;
+  color: var(--color-white);
+  background: var(--color-green);
+}
+
+/* Card que mostra o candidato qualificado. */
+.candidate-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+}
+
+.candidate-card h3 {
+  margin: 8px 0 4px;
+  color: var(--color-navy);
+}
+
+.candidate-card p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.score {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-white);
+  background: var(--color-green);
+  font-weight: 900;
+}
+
+/* Grid das métricas do painel. */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stats-grid div {
+  min-height: 86px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.stats-grid strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.35rem;
+}
+
+.stats-grid span {
+  color: #cfe4ff;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+/* Espaçamento padrão de cada seção da landing page. */
+.section {
+  padding: clamp(64px, 9vw, 108px) clamp(20px, 5vw, 72px);
+}
+
+.muted-section {
+  background: var(--color-soft);
+}
+
+/* Título reutilizado em várias seções. */
+.section-title {
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.section-title h2 {
+  margin: 12px 0;
+  color: var(--color-navy);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+}
+
+.section-title p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+/* Grade de cards das etapas e recursos. */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.info-card {
+  min-height: 250px;
+  padding: 22px;
+}
+
+.card-number {
+  display: block;
+  margin-bottom: 28px;
+  color: var(--color-cyan);
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
+/* Ícones textuais simples, sem biblioteca externa. */
+.text-icon,
+.check-icon {
+  display: inline-grid;
+  min-width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: var(--radius);
+  color: var(--color-blue);
+  background: var(--color-soft);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.info-card h3,
+.whatsapp-preview h3 {
+  margin: 18px 0 10px;
+  color: var(--color-navy);
+}
+
+.info-card p,
+.whatsapp-preview p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+/* Seção com texto e card lado a lado. */
+.split-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+  align-items: center;
+  gap: clamp(28px, 6vw, 72px);
+}
+
+.benefit-list {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-navy);
+  font-weight: 800;
+}
+
+.check-icon {
+  min-width: 34px;
+  height: 34px;
+  color: var(--color-white);
+  background: var(--color-green);
+  font-size: 0.68rem;
+}
+
+.whatsapp-preview {
+  padding: 30px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Lista de perguntas frequentes com abertura nativa do HTML. */
+.faq-list {
+  display: grid;
+  gap: 12px;
+  max-width: 900px;
+}
+
+details {
+  padding: 20px 22px;
+}
+
+summary {
+  color: var(--color-navy);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+details p {
+  margin: 12px 0 0;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+/* Layout base das páginas internas, como contato e 404. */
+.page-shell {
+  min-height: calc(100vh - 76px);
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 72px);
+  background: var(--color-soft);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 520px);
+  gap: clamp(28px, 6vw, 72px);
+  align-items: start;
+}
+
+/* Formulário de contato. */
+.contact-form {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--color-navy);
+  font-weight: 800;
+}
+
+.contact-form input,
+.contact-form select {
+  min-height: 48px;
+  width: 100%;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 0 12px;
+  color: var(--color-ink);
+  background: var(--color-white);
+}
+
+.center-page {
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+/* Rodapé do site. */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 36px clamp(20px, 5vw, 72px);
+  border-top: 1px solid var(--color-line);
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.footer-brand {
+  max-width: 440px;
+}
+
+.footer-brand img {
+  width: 210px;
+  margin-bottom: 14px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-brand p {
+  margin: 0;
+  color: #cfe4ff;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: flex-end;
+  gap: 18px;
+  color: #cfe4ff;
+  font-weight: 800;
+}
+
+/*
+  Responsividade:
+  abaixo de 980px, colunas grandes viram uma coluna única ou duas colunas.
+*/
+@media (max-width: 980px) {
+  .hero-section,
+  .split-section,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/*
+  Responsividade mobile:
+  abaixo de 720px, o menu quebra linha e os cards ficam empilhados.
+*/
+@media (max-width: 720px) {
+  .site-header,
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-section {
+    min-height: auto;
+  }
+
+  .hero-content h1,
+  .page-shell h1 {
+    font-size: 3rem;
+  }
+
+  .cards-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+}
