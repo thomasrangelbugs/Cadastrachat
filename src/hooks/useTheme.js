@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, createElement, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext(null);
 
@@ -14,11 +14,7 @@ export function ThemeProvider({ children }) {
     setTheme((t) => (t === "dark" ? "light" : "dark"));
   }
 
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggle }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return createElement(ThemeContext.Provider, { value: { theme, setTheme, toggle } }, children);
 }
 
 export function useTheme() {
