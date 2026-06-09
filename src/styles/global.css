@@ -203,9 +203,8 @@ textarea {
   100% { transform: translateY(100vh); opacity: 0; }
 }
 
-/* ─── Tech background (scroll-accelerated) ─── */
+/* ─── Tech background ─── */
 .tech-bg {
-  --bg-speed: 1;
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -223,7 +222,7 @@ textarea {
     linear-gradient(rgba(37, 211, 102, 0.07) 1px, transparent 1px),
     linear-gradient(90deg, rgba(37, 211, 102, 0.07) 1px, transparent 1px);
   background-size: 56px 56px, 56px 56px;
-  animation: techGridMove calc(90s / var(--bg-speed)) linear infinite;
+  animation: techGridMove 90s linear infinite;
   opacity: 0.55;
 }
 
@@ -232,7 +231,7 @@ textarea {
     radial-gradient(ellipse 55% 45% at 18% 22%, rgba(37, 211, 102, 0.14), transparent 55%),
     radial-gradient(ellipse 50% 40% at 82% 68%, rgba(83, 189, 235, 0.1), transparent 55%),
     radial-gradient(ellipse 40% 35% at 55% 45%, rgba(7, 94, 84, 0.12), transparent 50%);
-  animation: techMeshRotate calc(140s / var(--bg-speed)) linear infinite;
+  animation: techMeshRotate 140s linear infinite;
   filter: blur(2px);
 }
 
@@ -245,7 +244,7 @@ textarea {
     rgba(37, 211, 102, 0.025) 49px
   );
   background-size: 100% 200%;
-  animation: techLinesDrift calc(70s / var(--bg-speed)) linear infinite;
+  animation: techLinesDrift 70s linear infinite;
   opacity: 0.7;
 }
 
@@ -255,7 +254,7 @@ textarea {
     radial-gradient(circle, rgba(83, 189, 235, 0.25) 1px, transparent 1.5px);
   background-size: 120px 120px, 180px 180px;
   background-position: 0 0, 60px 60px;
-  animation: techNodesFloat calc(50s / var(--bg-speed)) ease-in-out infinite;
+  animation: techNodesFloat 50s ease-in-out infinite;
   opacity: 0.4;
 }
 
@@ -273,7 +272,7 @@ textarea {
     rgba(37, 211, 102, 0.06) 55%,
     transparent
   );
-  animation: techScanSweep calc(24s / var(--bg-speed)) linear infinite;
+  animation: techScanSweep 24s linear infinite;
 }
 
 [data-theme="light"] .tech-bg-grid {
