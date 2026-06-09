@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111b21"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#g)" opacity="0.4"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#075e54"/>
+      <stop offset="100%" stop-color="#25d366"/>
+    </linearGradient>
+  </defs>
+  <text x="80" y="280" fill="#ffffff" font-family="Arial,sans-serif" font-size="72" font-weight="800">ContrataChat</text>
+  <text x="80" y="360" fill="#aebac1" font-family="Arial,sans-serif" font-size="36">Contratação com IA via WhatsApp</text>
+  <circle cx="1050" cy="315" r="120" fill="#25d366" opacity="0.15"/>
+  <path d="M1000 315c0-55 45-100 100-100s100 45 100 100-45 100-100 100" fill="none" stroke="#25d366" stroke-width="6"/>
+  <text x="1060" y="330" fill="#25d366" font-family="Arial,sans-serif" font-size="80">=¬</text>
+</svg>

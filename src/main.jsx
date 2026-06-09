@@ -2,13 +2,19 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
+import { I18nProvider } from "./i18n/I18nContext";
 import "./styles/global.css";
+import "./styles/responsive.css";
+
+const savedTheme = localStorage.getItem("cc-theme") || "dark";
+document.documentElement.setAttribute("data-theme", savedTheme);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* O BrowserRouter habilita a navegação entre páginas sem recarregar o navegador. */}
     <BrowserRouter>
-      <App />
+      <I18nProvider>
+        <App />
+      </I18nProvider>
     </BrowserRouter>
   </StrictMode>
 );
