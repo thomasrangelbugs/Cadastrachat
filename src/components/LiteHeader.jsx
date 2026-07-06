@@ -3,7 +3,7 @@ import { useI18n } from "../i18n/I18nContext";
 import BrandLogo from "./BrandLogo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { getWhatsAppUrl } from "../config/contact";
-import { IconWhatsApp } from "./icons";
+import { LiteWhatsAppIcon } from "./lite/LiteIcons";
 
 export default function LiteHeader() {
   const { t } = useI18n();
@@ -22,7 +22,7 @@ export default function LiteHeader() {
           </Link>
           <LanguageSwitcher />
           <a className="lite-btn lite-btn--wa lite-btn--sm" href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-            <IconWhatsApp />
+            <LiteWhatsAppIcon />
             <span className="lite-btn-label">{t.nav.demo}</span>
           </a>
         </div>

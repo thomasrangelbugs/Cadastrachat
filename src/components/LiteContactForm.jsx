@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconWhatsApp } from "./icons";
+import { LiteWhatsAppIcon } from "./lite/LiteIcons";
 import { getWhatsAppUrl, WHATSAPP_DISPLAY } from "../config/contact";
 import { useI18n } from "../i18n/I18nContext";
 import { trackEvent } from "../services/analytics";
@@ -98,7 +98,7 @@ export default function LiteContactForm() {
         </label>
 
         <button className="lite-btn lite-btn--wa lite-btn--block" type="submit" disabled={status === "loading"}>
-          <IconWhatsApp />
+          <LiteWhatsAppIcon />
           {status === "loading" ? t.contact.sending : t.contact.submit}
         </button>
       </form>

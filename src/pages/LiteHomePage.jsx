@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/I18nContext";
 import LiteContactForm from "../components/LiteContactForm";
+import { LiteCheckIcon, LiteWhatsAppIcon } from "../components/lite/LiteIcons";
 import { getWhatsAppUrl } from "../config/contact";
-import { IconCheck, IconWhatsApp } from "../components/icons";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const SECTIONS = [
@@ -75,7 +75,7 @@ export default function LiteHomePage() {
             <p className="lite-hero-lead reveal reveal-delay-3">{t.lite.heroText}</p>
             <div className="lite-hero-actions reveal reveal-delay-4">
               <a className="lite-btn lite-btn--wa" href="#contato">
-                <IconWhatsApp />
+                <LiteWhatsAppIcon />
                 {t.hero.cta}
               </a>
               <a className="lite-btn lite-btn--outline" href="#processo">
@@ -166,7 +166,7 @@ export default function LiteHomePage() {
                 <ul>
                   {plan.features.map((f) => (
                     <li key={f}>
-                      <IconCheck />
+                      <LiteCheckIcon />
                       {f}
                     </li>
                   ))}
@@ -216,7 +216,7 @@ export default function LiteHomePage() {
 
       <div className="lite-mobile-bar">
         <a className="lite-btn lite-btn--wa lite-btn--block" href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-          <IconWhatsApp />
+          <LiteWhatsAppIcon />
           {t.hero.cta}
         </a>
       </div>

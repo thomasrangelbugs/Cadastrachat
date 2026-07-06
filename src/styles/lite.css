@@ -43,7 +43,21 @@
   box-sizing: border-box;
 }
 
-.lite-root svg {
+.lite-root svg.lite-icon,
+.lite-icon {
+  display: block !important;
+  width: 6px !important;
+  height: 6px !important;
+  min-width: 6px !important;
+  min-height: 6px !important;
+  max-width: 6px !important;
+  max-height: 6px !important;
+  flex: 0 0 6px !important;
+  flex-shrink: 0 !important;
+  overflow: visible;
+}
+
+.lite-root svg:not(.lite-icon) {
   display: block;
   width: 1rem;
   height: 1rem;
@@ -639,7 +653,7 @@
 
 .lite-plan li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.4rem;
   font-size: 0.8125rem;
@@ -781,22 +795,16 @@
   }
 }
 
-.lite-btn svg {
-  width: 0.875rem;
-  height: 0.875rem;
-  max-width: 0.875rem;
-  max-height: 0.875rem;
+.lite-btn svg.lite-icon,
+.lite-btn .lite-icon {
+  width: 6px !important;
+  height: 6px !important;
 }
 
-.lite-plan li {
-  align-items: center;
-}
-
-.lite-plan li svg {
-  width: 0.75rem;
-  height: 0.75rem;
-  max-width: 0.75rem;
-  max-height: 0.75rem;
+.lite-plan li svg.lite-icon,
+.lite-plan li .lite-icon {
+  width: 6px !important;
+  height: 6px !important;
   margin-top: 0;
   color: var(--lite-accent);
 }
