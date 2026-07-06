@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/I18nContext";
 import BrandLogo from "./BrandLogo";
+import { getWhatsAppUrl, INSTAGRAM_URL, WHATSAPP_DISPLAY } from "../config/contact";
 import { IconInstagram, IconLinkedIn } from "./icons";
 
 export default function Footer() {
@@ -41,6 +42,9 @@ export default function Footer() {
       <div className="footer-col">
         <h4>{t.footer.contactCol}</h4>
         <a href="mailto:contato@contratachat.com.br">contato@contratachat.com.br</a>
+        <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+          WhatsApp {WHATSAPP_DISPLAY}
+        </a>
         <Link to="/contato">{t.nav.demo}</Link>
         <a href="/#faq">{t.nav.help}</a>
       </div>
@@ -53,7 +57,7 @@ export default function Footer() {
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <IconLinkedIn />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <IconInstagram />
           </a>
         </div>

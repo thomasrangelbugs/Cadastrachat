@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/I18nContext";
 import BrandLogo from "./BrandLogo";
 import LanguageSwitcher from "./LanguageSwitcher";
-import ThemeToggle from "./ThemeToggle";
 import { IconClose, IconMenu } from "./icons";
 
 export default function Header() {
@@ -57,7 +56,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+      <header className={`site-header site-header--dock${scrolled ? " is-scrolled" : ""}`}>
         <Link className="brand" to="/" aria-label="ContrataChat" onClick={closeMenu}>
           <BrandLogo />
         </Link>
@@ -75,7 +74,9 @@ export default function Header() {
             )
           )}
           <LanguageSwitcher />
-          <ThemeToggle />
+          <Link className="button button-small button-ghost" to="/lite">
+            {t.lite.switchLite}
+          </Link>
           <Link className="button button-small" to="/contato">
             {t.nav.demo}
           </Link>
@@ -83,7 +84,6 @@ export default function Header() {
 
         <div className="header-mobile-actions">
           <LanguageSwitcher />
-          <ThemeToggle />
           <button
             className="menu-toggle"
             type="button"
@@ -108,6 +108,9 @@ export default function Header() {
             </a>
           )
         )}
+        <Link to="/lite" onClick={closeMenu}>
+          {t.lite.switchLite}
+        </Link>
         <Link className="button" to="/contato" onClick={closeMenu}>
           {t.nav.demo}
         </Link>

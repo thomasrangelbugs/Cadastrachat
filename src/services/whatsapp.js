@@ -1,10 +1,20 @@
-const apiUrl = import.meta.env.VITE_API_URL ?? "";
-const widgetNumber = import.meta.env.VITE_WHATSAPP_WIDGET_NUMBER || "5511999999999";
+import {
+  WHATSAPP_DEMO_MESSAGE,
+  WHATSAPP_NUMBER,
+  getWhatsAppUrl,
+} from "../config/contact";
 
-export function getWhatsAppLink(message = "") {
-  const encoded = encodeURIComponent(message);
-  return `https://wa.me/${widgetNumber.replace(/\D/g, "")}${message ? `?text=${encoded}` : ""}`;
+const apiUrl = import.meta.env.VITE_API_URL ?? "";
+const widgetNumber =
+  import.meta.env.VITE_WHATSAPP_WIDGET_NUMBER || WHATSAPP_NUMBER;
+
+export function getWhatsAppLink(message = WHATSAPP_DEMO_MESSAGE) {
+  const digits = widgetNumber.replace(/\D/g, "");
+  const text = message || WHATSAPP_DEMO_MESSAGE;
+  return `https://wa.me/${digits}?text=${encodeURIComponent(text)}`;
 }
+
+export { getWhatsAppUrl, WHATSAPP_DEMO_MESSAGE };
 
 export async function sendWhatsAppMessage(to, message) {
   const res = await fetch(`${apiUrl}/api/whatsapp/send`, {

@@ -7,7 +7,9 @@ export function useScrollReveal() {
     const el = ref.current;
     if (!el) return;
 
-    const targets = el.querySelectorAll(".reveal");
+    const targets = el.querySelectorAll(
+      ".reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-text"
+    );
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -17,7 +19,7 @@ export function useScrollReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -32px 0px" }
     );
 
     targets.forEach((t) => observer.observe(t));

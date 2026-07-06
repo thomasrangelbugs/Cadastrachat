@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IconCheck, IconWhatsApp } from "../components/icons";
+import { getWhatsAppUrl, WHATSAPP_DISPLAY } from "../config/contact";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useI18n } from "../i18n/I18nContext";
 import { trackEvent } from "../services/analytics";
@@ -68,6 +69,13 @@ export default function ContactPage() {
               {t.contact.perk3}
             </div>
           </div>
+
+          <p className="contact-whatsapp-alt">
+            {t.contact.whatsappDirect}{" "}
+            <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+              {WHATSAPP_DISPLAY}
+            </a>
+          </p>
         </div>
 
         <form className="contact-form reveal reveal-delay-2" onSubmit={handleSubmit}>

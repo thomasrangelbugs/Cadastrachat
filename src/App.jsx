@@ -1,16 +1,14 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Analytics from "./components/Analytics";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import ScrollProgress from "./components/ScrollProgress";
-import TechBackground from "./components/TechBackground";
-import WhatsAppWidget from "./components/WhatsAppWidget";
 import { useI18n } from "./i18n/I18nContext";
+import LiteLayout from "./layouts/LiteLayout";
+import MainLayout from "./layouts/MainLayout";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ContactPage from "./pages/ContactPage";
 import HomePage from "./pages/HomePage";
+import LiteHomePage from "./pages/LiteHomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function DocumentMeta() {
@@ -31,18 +29,19 @@ export default function App() {
     <>
       <DocumentMeta />
       <Analytics />
-      <TechBackground />
-      <ScrollProgress />
-      <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/contato" element={<ContactPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:slug" element={<BlogPostPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route element={<LiteLayout />}>
+          <Route path="/lite" element={<LiteHomePage />} />
+        </Route>
+
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contato" element={<ContactPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
       </Routes>
-      <Footer />
-      <WhatsAppWidget />
     </>
   );
 }
