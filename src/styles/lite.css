@@ -20,10 +20,10 @@
   --lite-warm: #7dd3fc;
   --lite-warm-soft: rgba(125, 211, 252, 0.12);
   --lite-header-bg: rgba(5, 21, 37, 0.92);
-  --lite-header-h: 64px;
-  --lite-nav-h: 52px;
-  --lite-radius: 16px;
-  --lite-radius-sm: 10px;
+  --lite-header-h: 20px;
+  --lite-nav-h: 20px;
+  --lite-radius: 8px;
+  --lite-radius-sm: 8px;
   --lite-font: "DM Sans", system-ui, sans-serif;
   --lite-display: "Plus Jakarta Sans", system-ui, sans-serif;
 
