@@ -74,9 +74,6 @@ export default function Header() {
             )
           )}
           <LanguageSwitcher />
-          <Link className="button button-small button-ghost" to="/lite">
-            {t.lite.switchLite}
-          </Link>
           <Link className="button button-small" to="/contato">
             {t.nav.demo}
           </Link>
@@ -108,9 +105,6 @@ export default function Header() {
             </a>
           )
         )}
-        <Link to="/lite" onClick={closeMenu}>
-          {t.lite.switchLite}
-        </Link>
         <Link className="button" to="/contato" onClick={closeMenu}>
           {t.nav.demo}
         </Link>

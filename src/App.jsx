@@ -2,13 +2,11 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Analytics from "./components/Analytics";
 import { useI18n } from "./i18n/I18nContext";
-import LiteLayout from "./layouts/LiteLayout";
 import MainLayout from "./layouts/MainLayout";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ContactPage from "./pages/ContactPage";
 import HomePage from "./pages/HomePage";
-import LiteHomePage from "./pages/LiteHomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function DocumentMeta() {
@@ -30,10 +28,6 @@ export default function App() {
       <DocumentMeta />
       <Analytics />
       <Routes>
-        <Route element={<LiteLayout />}>
-          <Route path="/lite" element={<LiteHomePage />} />
-        </Route>
-
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/contato" element={<ContactPage />} />

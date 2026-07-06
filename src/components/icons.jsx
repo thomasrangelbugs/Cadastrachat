@@ -1,4 +1,4 @@
-const SVG_PROPS = { width: 5, height: 5, "aria-hidden": true };
+const SVG_PROPS = { width: 18, height: 18, "aria-hidden": true };
 
 export function IconMenu() {
   return (

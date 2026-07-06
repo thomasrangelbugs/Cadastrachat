@@ -5,7 +5,7 @@ const logoWebp = "/logo-contratachat.webp";
 const logoLightWebp = "/logo-contratachat-dark.webp";
 
 export default function BrandLogo({ variant = "header" }) {
-  const useLight = variant === "footer" || variant === "header" || variant === "lite";
+  const useLight = variant === "footer" || variant === "header";
   const png = useLight ? logoLightPng : logoPng;
   const webp = useLight ? logoLightWebp : logoWebp;
 
