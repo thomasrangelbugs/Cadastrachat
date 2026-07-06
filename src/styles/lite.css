@@ -43,27 +43,33 @@
   box-sizing: border-box;
 }
 
-.lite-root svg.lite-icon,
-.lite-icon {
-  display: block !important;
-  width: 6px !important;
-  height: 6px !important;
-  min-width: 6px !important;
-  min-height: 6px !important;
-  max-width: 6px !important;
-  max-height: 6px !important;
-  flex: 0 0 6px !important;
-  flex-shrink: 0 !important;
-  overflow: visible;
+/* Ícones Lite: tamanhos em src/components/lite/LiteIcons.jsx + regras abaixo */
+.lite-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  line-height: 0;
 }
 
-.lite-root svg:not(.lite-icon) {
+.lite-icon-wrap--check {
+  width: 14px;
+  height: 14px;
+}
+
+.lite-icon-wrap--wa {
+  width: 16px;
+  height: 16px;
+}
+
+.lite-root .lite-icon-wrap svg,
+.lite-root svg.lite-icon {
   display: block;
-  width: 1rem;
-  height: 1rem;
-  max-width: 1rem;
-  max-height: 1rem;
-  flex: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   flex-shrink: 0;
 }
 
@@ -795,17 +801,7 @@
   }
 }
 
-.lite-btn svg.lite-icon,
-.lite-btn .lite-icon {
-  width: 6px !important;
-  height: 6px !important;
-}
-
-.lite-plan li svg.lite-icon,
-.lite-plan li .lite-icon {
-  width: 6px !important;
-  height: 6px !important;
-  margin-top: 0;
+.lite-plan li .lite-icon-wrap--check {
   color: var(--lite-accent);
 }
 

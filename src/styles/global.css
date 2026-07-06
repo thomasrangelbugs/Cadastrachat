@@ -399,6 +399,11 @@ textarea {
 .reveal-text {
   transform: translateY(24px);
   clip-path: inset(0 0 100% 0);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.is-visible,
@@ -731,12 +736,8 @@ button.button svg {
   line-height: 1.75;
 }
 
-.hero-actions--centered {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 32px;
+.hero-content--bottom {
+  margin-top: 8px;
 }
 
 .hero-visual--stacked {
@@ -745,9 +746,20 @@ button.button svg {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 640px;
-  min-height: clamp(420px, 50vw, 520px);
-  margin-top: 48px;
+  max-width: 720px;
+  min-height: clamp(300px, 42vw, 420px);
+  margin-top: 28px;
+  margin-bottom: 8px;
+}
+
+.hero-visual--stacked::before {
+  content: "";
+  position: absolute;
+  inset: 8% 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(125, 211, 252, 0.14) 0%, transparent 68%);
+  pointer-events: none;
+  animation: sectionGlow 6s ease-in-out infinite;
 }
 
 .hero-visual--stacked .hero-robot-scene {
@@ -774,7 +786,15 @@ button.button svg {
 }
 
 .hero-visual--stacked .hero-robot-figure {
-  margin-top: 48px;
+  margin-top: 32px;
+}
+
+.hero-actions--centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
 }
 
 .phone-mockup--floating {

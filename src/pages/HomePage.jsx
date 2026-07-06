@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AnimatedStat from "../components/AnimatedStat";
 import ClientLogos from "../components/ClientLogos";
@@ -29,23 +30,44 @@ export default function HomePage() {
   const { t } = useI18n();
   const pageRef = useScrollReveal();
 
+  useEffect(() => {
+    const hero = document.getElementById("inicio");
+    if (!hero) return;
+
+    requestAnimationFrame(() => {
+      hero.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-text"
+      ).forEach((node) => node.classList.add("is-visible"));
+    });
+  }, []);
+
   return (
     <main ref={pageRef}>
       <section className="hero-section hero-section--centered" id="inicio">
         <div className="hero-glow" aria-hidden="true" />
 
         <div className="hero-inner">
-          <div className="hero-content hero-content--centered reveal reveal-blur">
+          <div className="hero-content hero-content--centered">
             <span className="eyebrow reveal reveal-delay-1">
               <span className="eyebrow-dot" aria-hidden="true" />
               {t.hero.eyebrow}
             </span>
-            <h1 className="reveal-text reveal-delay-1">
+            <h1 className="reveal reveal-delay-1">
               {t.hero.title} <span>{t.hero.titleHighlight}</span>
             </h1>
-            <p className="reveal reveal-delay-2">{t.hero.text}</p>
+          </div>
 
-            <div className="hero-actions hero-actions--centered reveal reveal-delay-3">
+          <div className="hero-visual hero-visual--stacked reveal-scale reveal-delay-2">
+            <HeroRobot />
+            <div className="phone-mockup phone-mockup--floating">
+              <WhatsAppMockup />
+            </div>
+          </div>
+
+          <div className="hero-content hero-content--centered hero-content--bottom">
+            <p className="reveal reveal-delay-3">{t.hero.text}</p>
+
+            <div className="hero-actions hero-actions--centered reveal reveal-delay-4">
               <Link className="button" to="/contato">
                 <IconWhatsApp />
                 {t.hero.cta}
@@ -56,14 +78,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hero-visual hero-visual--stacked reveal-scale reveal-delay-2">
-            <HeroRobot />
-            <div className="phone-mockup phone-mockup--floating">
-              <WhatsAppMockup />
-            </div>
-          </div>
-
-          <div className="hero-trust hero-trust--pills reveal reveal-delay-3">
+          <div className="hero-trust hero-trust--pills reveal reveal-delay-5">
             <div className="hero-trust-item">
               <strong>+500</strong> {t.hero.trust1}
             </div>
