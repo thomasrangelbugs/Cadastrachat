@@ -1,5 +1,5 @@
-const CHECK_SIZE = 14;
-const WA_SIZE = 16;
+const CHECK_SIZE = 5;
+const WA_SIZE = 6;
 
 export function LiteCheckIcon() {
   return (
