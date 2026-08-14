@@ -1,12 +1,48 @@
-# ContrataChat
+# ContrataChat (Cadastrachat)
 
-O **ContrataChat** é uma plataforma web voltada para processos de recrutamento e seleção, utilizando inteligência artificial e integração com WhatsApp para facilitar a comunicação com candidatos, o cadastro de informações e a organização dos processos seletivos.
+Plataforma web de recrutamento e seleção com IA e WhatsApp: cadastro de candidatos, triagem e organização do processo seletivo.
 
-A proposta do projeto é tornar a contratação mais simples, rápida e acessível, ajudando empresas e recrutadores a automatizarem etapas iniciais do processo seletivo.
+## Como usar
 
-## Demonstração
+Demo: https://contratachat-beta.vercel.app/
 
-Acesse o projeto online:
+Localmente:
 
-```txt
-https://contratachat-beta.vercel.app/
+```bash
+npm install
+npm run dev
+```
+
+Para API local junto com o front:
+
+```bash
+npm run dev:full
+```
+
+Build: `npm run build` — preview: `npm run preview`.
+
+## Linguagem e tecnologias
+
+- **HTML / CSS / JavaScript**
+- **React** + **Vite**
+- **Node.js / Express** (`server/index.mjs`)
+- **Vercel** — hospedagem
+
+## Estrutura do projeto
+
+```
+Cadastrachat/
+├── index.html
+├── package.json
+├── vite.config.js
+├── src/
+│   ├── App.jsx / main.jsx / pages/ / components/
+│   ├── services/          # WhatsApp, CRM, analytics
+│   └── i18n/
+├── server/index.mjs
+└── public/
+```
+
+## Autor
+
+Thomas Rangel Bugs
